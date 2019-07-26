@@ -1,4 +1,4 @@
-FROM mdPlusPlus/dpkg-buildpackage_libvirt_ubuntu
+FROM mdplusplus/dpkg-buildpackage_libvirt_ubuntu
 
 MAINTAINER mdPlusPlus
 
