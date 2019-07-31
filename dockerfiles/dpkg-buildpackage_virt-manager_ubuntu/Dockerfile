@@ -67,7 +67,7 @@ RUN \
 RUN \
 	cd /root/upstream && \
 	cd virt-manager-*/ && \
-	sed -i 's/usr\/share\/virt-manager\/virtcli/# usr\/share\/virt-manager\/virtcli/g' debian/virtinst.install
+	sed -i 's/usr\/share\/virt-manager\/virtcli/#&/g' debian/virtinst.install
 	#EDITOR="/bin/true" dpkg-source --commit . virtcli.patch
 
 RUN \

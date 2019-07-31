@@ -76,8 +76,8 @@ RUN \
 ## TODO: replace maintainers with mdPlusPlus in debian/control
 
 # fix patches
-# RUN sed -i 's//#/g' /root/upstream/edk2-*/debian/patches/series
-RUN sed -i 's/enroll-default-keys.patch/#enroll-default-keys.patch/g' /root/upstream/edk2-*/debian/patches/series
+# RUN sed -i 's//#&/g' /root/upstream/edk2-*/debian/patches/series
+RUN sed -i 's/enroll-default-keys.patch/#&/g' /root/upstream/edk2-*/debian/patches/series
 
 # "install" openssl
 RUN \
