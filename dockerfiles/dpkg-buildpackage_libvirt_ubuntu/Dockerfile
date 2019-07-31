@@ -52,13 +52,16 @@ RUN \
 
 # fix patches
 # RUN sed -i 's//#&/g' /root/upstream/libvirt-*/debian/patches/series
+RUN sed -i 's/debian\/Debianize-systemd-service-files.patch/#&/g' /root/upstream/libvirt-*/debian/patches/series # TODO: backport!
 RUN sed -i 's/debian\/Don-t-enable-default-network-on-boot.patch/#&/g' /root/upstream/libvirt-*/debian/patches/series
 RUN sed -i 's/Reduce-udevadm-settle-timeout-to-10-seconds.patch/#&/g' /root/upstream/libvirt-*/debian/patches/series
 RUN sed -i 's/debian\/Use-upstreams-polkit-rule.patch/#&/g' /root/upstream/libvirt-*/debian/patches/series
 RUN sed -i 's/ubuntu\/Allow-libvirt-group-to-access-the-socket.patch/#&/g' /root/upstream/libvirt-*/debian/patches/series # applies, but causes: "Test failure:test_libvirtd.aug:49.3-107.31:"
 RUN sed -i 's/ubuntu\/daemon-augeas-fix-expected.patch/#&/g' /root/upstream/libvirt-*/debian/patches/series
 RUN sed -i 's/ubuntu\/ubuntu_machine_type.patch/#&/g' /root/upstream/libvirt-*/debian/patches/series
+RUN sed -i 's/ubuntu\/apibuild-skip-libvirt-common.h/#&/g' /root/upstream/libvirt-*/debian/patches/series
 RUN sed -i 's/ubuntu\/dnsmasq-as-priv-user/#&/g' /root/upstream/libvirt-*/debian/patches/series # applies, but causes "nat-network-mtu" to not pass
+RUN sed -i 's/ubuntu\/avoid-restarting-virtlog-socket.patch/#&/g' /root/upstream/libvirt-*/debian/patches/series
 RUN sed -i 's/ubuntu\/md-clear.patch/#&/g' /root/upstream/libvirt-*/debian/patches/series
 RUN sed -i 's/ubuntu-aa\/0032-apparmor-libvirt-qemu-Allow-reading-charm-specific-c.patch/#&/g' /root/upstream/libvirt-*/debian/patches/series
 RUN sed -i 's/ubuntu-aa\/0033-UBUNTU-only-apparmor-for-kvm.powerpc-LP-1680384.patch/#&/g' /root/upstream/libvirt-*/debian/patches/series
