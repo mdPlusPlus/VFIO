@@ -52,7 +52,14 @@ RUN \
 
 # fix patches
 # RUN sed -i 's//#&/g' /root/upstream/libvirt-*/debian/patches/series
-RUN sed -i 's/debian\/Debianize-systemd-service-files.patch/#&/g' /root/upstream/libvirt-*/debian/patches/series # TODO: backport!
+
+# copy ported patches
+COPY ported_patches/debian/ported_Debianize-systemd-service-files.patch /root/ported_patches/debian/ported_Debianize-systemd-service-files.patch
+RUN \
+	cd /root/upstream/libvirt-*/debian/patches && \
+	cp /root/ported_patches/debian/ported_Debianize-systemd-service-files.patch ./debian/
+RUN sed -i 's/debian\/Debianize-systemd-service-files.patch/debian\/ported_Debianize-systemd-service-files.patch/g' /root/upstream/libvirt-*/debian/patches/series
+
 RUN sed -i 's/debian\/Don-t-enable-default-network-on-boot.patch/#&/g' /root/upstream/libvirt-*/debian/patches/series
 RUN sed -i 's/Reduce-udevadm-settle-timeout-to-10-seconds.patch/#&/g' /root/upstream/libvirt-*/debian/patches/series
 RUN sed -i 's/debian\/Use-upstreams-polkit-rule.patch/#&/g' /root/upstream/libvirt-*/debian/patches/series
