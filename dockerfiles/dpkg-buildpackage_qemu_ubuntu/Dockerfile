@@ -100,6 +100,12 @@ RUN sed -i 's/ubuntu\/CVE-2018-20815.patch/#&/g' /root/upstream/qemu-*/debian/pa
 RUN sed -i 's/ubuntu\/CVE-2019-5008.patch/#&/g' /root/upstream/qemu-*/debian/patches/series
 RUN sed -i 's/ubuntu\/CVE-2019-9824.patch/#&/g' /root/upstream/qemu-*/debian/patches/series
 RUN sed -i 's/ubuntu\/lp-1830704-s390x-cpumodel-ignore-csske-for-expansion.patch/#&/g' /root/upstream/qemu-*/debian/patches/series
+RUN sed -i 's/ubuntu\/lp-1830243-s390-bios-Skip-bootmap-signature-entries.patch/#&/g' /root/upstream/qemu-*/debian/patches/series
+RUN sed -i 's/ubuntu\/lp1828495-0011-disable-arch-cap-when-no-msr.patch/#&/g' /root/upstream/qemu-*/debian/patches/series
+RUN sed -i 's/ubuntu\/lp1828495-0012-arch-capabilities-migratable.patch/#&/g' /root/upstream/qemu-*/debian/patches/series
+RUN sed -i 's/ubuntu\/lp1828495-0014-remove-cpuid-pconfig.patch/#&/g' /root/upstream/qemu-*/debian/patches/series
+RUN sed -i 's/ubuntu\/lp1828495-0015-remove-cpuid-intel_pt.patch/#&/g' /root/upstream/qemu-*/debian/patches/series
+RUN sed -i 's/ubuntu\/lp1828495-0016-no-ospke-on-some.patch/#&/g' /root/upstream/qemu-*/debian/patches/series
 
 # fix "ERROR: unknown option --with-sdlabi=2.0"
 RUN \
